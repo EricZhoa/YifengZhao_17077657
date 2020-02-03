@@ -1,0 +1,22 @@
+.Head{
+    color:lightblue;
+    font-family: Arial;
+    padding-left: 20px;
+}
+.Padding{
+    color:grey;
+    font-family: Arial;
+    text-align: justify;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+.center1{
+    padding-top: 50px;
+    text-align: left;
+    margin: auto;
+    display: table;
+}
+.center2{
+  text-align: center;
+}
