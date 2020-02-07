@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/mystyle.css">
+    <title>
+        {% block title %}
+            {{ title }}
+        {% endblock %}
+    </title>
+
+</head>
+
+<body>
+<!-- Navbar of page-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">
+        <img src="../static/weather.jpg" height="45" width="80" alt="brand picture">
+        Rain Blog
+    </a>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="{{ url_for('index') }}">Home</a>
+        <a class="nav-item nav-link" href="{{ url_for('signup') }}">Signup</a>
+    </div>
+</nav>
+
+<div role=main class="container-fluid">
+    <!-- Child pages add page specific content here -->
+    {% block content %}
+        {{ content }}
+    {% endblock %}
+</div>
+<!-- Displays flashed messages on a page -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

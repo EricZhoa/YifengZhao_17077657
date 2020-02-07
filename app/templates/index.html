@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "layout.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Rain Blog</title>
-    <link rel="stylesheet" href="../static/mystyle.css">
-</head>
-<body>
-    <!-- Navbar of home page-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">
-            <img src="../static/weather.jpg" height="45" width="80" alt="brand picture">
-            Rain Blog
-        </a>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/index.html">Home</a>
-            <a class="nav-item nav-link" href="signup.html">Signup</a>
-        </div>
-    </nav>
+{% block title %} Home {% endblock %}
 
+{% block content %}
     <!-- Heading of home page-->
     <div class="Head"><h1>Forecast Blog</h1></div>
 
@@ -51,6 +31,4 @@
             </div>
         </div>
     </form>
-
-</body>
-</html>
+{% endblock %}
