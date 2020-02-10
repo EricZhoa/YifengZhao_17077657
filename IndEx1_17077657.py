@@ -35,7 +35,7 @@ Note: SQLite does not have a datetime data type, use text and enter dates as YYY
 
 import sqlite3
 
-conn = sqlite3.connect('rain_sqlite.db')
+conn = sqlite3.connect('rain.sqlite')
 
 c = conn.cursor()
 
@@ -44,7 +44,8 @@ c.execute('''
          CREATE TABLE user
          (user_id INTEGER PRIMARY KEY,
          username TEXT NOT NULL, 
-         email TEXT NOT NULL)
+         email TEXT NOT NULL,
+         password TEXT NOT NULL)
          ''')
 
 # create the city table
@@ -68,10 +69,10 @@ c.execute('''
          ''')
 
 # insert data into table user
-sql = "INSERT INTO user (username,email) VALUES (?,?)"
-values = [('weatherman', 'jo@bloggs.com'),
-          ('itrains', 'itrains@alot.co.uk'),
-          ('sunny', 'sunny_grl@sunshine.co.uk')]
+sql = "INSERT INTO user (username,email,password) VALUES (?,?,?)"
+values = [('weatherman', 'jo@bloggs.com','test1pass'),
+          ('itrains', 'itrains@alot.co.uk','test2pass'),
+          ('sunny', 'sunny_grl@sunshine.co.uk','test3pass')]
 c.executemany(sql,values)
 
 # insert data into city table
