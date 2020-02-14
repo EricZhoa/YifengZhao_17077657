@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %} Search {% endblock %}
+
+{% block content %}
+    {% if results|length %}
+        {# Variable is not empty #}
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">City</th>
+                <th scope="col">Blog post content</th>
+            </tr>
+            </thead>
+            <tbody>{% for result in results %}
+                <tr>
+                    <td>{{ result.city }}</td>
+                    <td>{{ result.forecast }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {# Variable is empty #}
+        <p>Sorry, no results found</p>
+    {% endif %}
+
+{% endblock %}
