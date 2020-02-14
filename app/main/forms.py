@@ -10,8 +10,8 @@ class SignupForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
 
-    def validate_email(self, email):
-        user = User.query.filter_by(email=email.data).first()
+    def validate_email_address(self, email_address):
+        user = User.query.filter_by(email=email_address.data).first()
         if user is not None:
             raise ValidationError(
                 'An account is already registered for that email address. Please use a different email address.')

@@ -16,8 +16,7 @@ def index():
 def signup():
     form = SignupForm(request.form)
     if request.method == 'POST' and form.validate():
-        user = User(name=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
+        user = User(username=form.username.data, email=form.email_address.data,password=form.password.data)
         try:
             db.session.add(user)
             db.session.commit()
@@ -43,7 +42,7 @@ def search():
         if term == "":
             flash("Enter a city or blog content to search for")
             return redirect('/')
-        results = City.query.join(Forecast).with_entities(City.city(term), Forecast.forecast(term)).all()
+        results = City.query.join(Forecast).with_entities(City.city, Forecast.forecast).filter(City.city.contains(term)).all()
         if not results:
             flash("No results founded.")
             return redirect('/')
