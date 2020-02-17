@@ -25,7 +25,7 @@ def signup():
         except IntegrityError:
             db.session.rollback()
             flash('ERROR! Unable to register {}. Please check your details are correct and try again.'.format(
-                form.name.data), 'error')
+                form.username.data), 'error')
     return render_template('signup.html', form=form)
 
 
@@ -42,7 +42,7 @@ def search():
         if term == "":
             flash("Enter a city or blog content to search for")
             return redirect('/')
-        results = City.query.join(Forecast).with_entities(City.city, Forecast.forecast).filter(City.city.contains(term)).all()
+        results = City.query.join(Forecast).with_entities(City.city, Forecast.forecast).filter(City.city.contains(term)|Forecast.forecast.contains(term)).all()
         if not results:
             flash("No results founded.")
             return redirect('/')
